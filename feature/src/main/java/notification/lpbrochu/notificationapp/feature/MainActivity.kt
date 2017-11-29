@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import notification.lpbrochu.notificationapp.feature.handler.ToastMessageHandler
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                    .setAction("Action", null).show()
 //        }
-        fab.setOnClickListener{ view -> SubmitDataHandler().submitData()}
+
+        fab.setOnClickListener{ view -> SubmitDataHandler(ToastMessageHandler(this)).submitData() }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)

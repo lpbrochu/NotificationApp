@@ -11,6 +11,10 @@ class HttpUtils(val baseUrl: String) {
 
     private val client = AsyncHttpClient()
 
+    init {
+        client.setMaxRetriesAndTimeout(1, 100)
+    }
+
     operator fun get(url: String, params: RequestParams? = null, responseHandler: AsyncHttpResponseHandler) {
         client.get(getAbsoluteUrl(url), params, responseHandler)
     }
